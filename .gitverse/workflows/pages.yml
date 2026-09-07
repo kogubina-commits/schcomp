@@ -1,4 +1,3 @@
-
 name: Deploy FirstGrade Compass
 
 on:
@@ -36,7 +35,8 @@ jobs:
           test -f dist/public/index.html
 
       - name: Upload Pages artifact
-uses: actions/upload-pages-artifact@v1          with:
+        uses: actions/upload-pages-artifact@v1
+        with:
           path: dist/public
 
   deploy:
@@ -45,4 +45,4 @@ uses: actions/upload-pages-artifact@v1          with:
 
     steps:
       - name: Deploy to GitVerse Pages
-uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v1
