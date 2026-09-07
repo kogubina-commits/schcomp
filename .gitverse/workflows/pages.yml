@@ -36,8 +36,7 @@ jobs:
           test -f dist/public/index.html
 
       - name: Upload Pages artifact
-        uses: gitverse/upload-pages-artifact@v1.0.0
-        with:
+uses: actions/upload-pages-artifact@v1          with:
           path: dist/public
 
   deploy:
@@ -46,4 +45,4 @@ jobs:
 
     steps:
       - name: Deploy to GitVerse Pages
-        uses: gitverse/deploy-pages@v1.0.0
+uses: actions/deploy-pages@v1
