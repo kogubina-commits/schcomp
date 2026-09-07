@@ -1,0 +1,48 @@
+name: Deploy FirstGrade Compass
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        run: npm install -g pnpm@10.4.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build frontend
+        run: pnpm exec vite build --base=/firstgrade-compass/
+
+      - name: Verify build
+        run: |
+          echo "Contents of dist/public:"
+          ls -la dist/public
+          test -f dist/public/index.html
+
+      - name: Upload Pages artifact
+        uses: gitverse/upload-pages-artifact@v1.0.0
+        with:
+          path: dist/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitVerse Pages
+        uses: gitverse/deploy-pages@v1.0.0
