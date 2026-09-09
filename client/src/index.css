@@ -39,3 +39,41 @@ button { cursor: pointer; }
 .mascot-sparkle { position: absolute; right: 5px; top: 2px; color: #e6b75f; font-size: 22px; line-height: 1; animation: mascot-sparkle 820ms ease-out; }
 .mascot-tip-pop { animation: mascot-tip-pop 360ms cubic-bezier(.23,1,.32,1); }
 @media (prefers-reduced-motion: reduce) { .mascot-joy, .mascot-sparkle, .mascot-tip-pop { animation: none; } }
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes mascot-joy {
+  0% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-16px) scale(1.12) rotate(-4deg); }
+  70% { transform: translateY(0) scale(0.94); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.mascot-alive {
+  animation: mascot-float 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.mascot-alive:hover {
+  animation: mascot-joy 0.7s ease;
+}
+.mascot-cut {
+  mix-blend-mode: multiply;
+}
+@keyframes mascot-blink {
+  0%, 91%, 100% { transform: scaleY(1); }
+  94% { transform: scaleY(0.82); }
+  97% { transform: scaleY(1); }
+}
+
+.mascot-blink {
+  animation: mascot-blink 4.5s ease-in-out infinite;
+  transform-origin: 50% 62%;
+}
+
+.mascot-joy-run {
+  display: inline-block;
+  animation: mascot-joy 0.9s ease;
+}
