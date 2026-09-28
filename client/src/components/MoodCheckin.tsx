@@ -148,7 +148,7 @@ export default function MoodCheckin() {
           <img src={`${import.meta.env.BASE_URL}images/${mascot}.png`} alt={mascotName} className="mascot-cut h-full w-full object-contain" />
         </span>
         <div>
-          <h3 className="font-display text-xl font-semibold text-[#26363b]">Вечерний чек-ин с {mascotName}</h3>
+          <h3 className="font-display text-xl font-semibold text-[#26363b]">Вечерний чек-ин с {mascot === "luna" ? "Луной" : "Тимо"}</h3>
           <p className="mt-1 text-sm text-[#8a9792]">Три коротких шага — и день ложится в копилку недели.</p>
         </div>
       </div>
@@ -223,7 +223,7 @@ export default function MoodCheckin() {
 
       {done && (
         <p className="mt-4 rounded-2xl bg-[#e3f3e9] px-4 py-3 text-sm font-semibold text-[#4d8c6e]">
-          Спасибо, что поделился! {mascotName} всё запомнил. ✨
+          Спасибо, что поделился! {mascotName} всё {mascot === "luna" ? "запомнила" : "запомнил"}. ✨
         </p>
       )}
     </section>

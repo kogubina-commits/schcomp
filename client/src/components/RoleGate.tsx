@@ -22,7 +22,7 @@ export default function RoleGate() {
           <p className="mb-8 text-lg text-[#665b52]">Кто ты?</p>
           <div className="grid gap-4 md:grid-cols-2">
             <button
-              onClick={() => setRole("parent")}
+              onClick={() => { window.localStorage.setItem("school-compass-role", "parent"); setRole("parent"); }}
               className="rounded-2xl bg-[#f7c6b8] p-6 shadow-lg transition-all hover:scale-105 hover:bg-[#e8a898]"
             >
               <div className="mb-3 text-6xl">👩</div>
@@ -30,7 +30,7 @@ export default function RoleGate() {
               <div className="mt-1 text-sm text-[#665b52]">Составляю план, слежу за неделей</div>
             </button>
             <button
-              onClick={() => setRole("child")}
+              onClick={() => { window.localStorage.setItem("school-compass-role", "child"); setRole("child"); }}
               className="rounded-2xl bg-[#c8dceb] p-6 shadow-lg transition-all hover:scale-105 hover:bg-[#a8c4d8]"
             >
               <div className="mb-3 text-6xl">🧒</div>
