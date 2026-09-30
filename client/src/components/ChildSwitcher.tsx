@@ -20,9 +20,9 @@ export default function ChildSwitcher() {
   };
 
   return (
-    <section className="mb-6 rounded-[26px] border border-[#e2e4df] bg-white/80 p-4 sm:p-5">
+    <section className="rounded-[26px] border border-[#e2e4df] bg-white/80 p-5 shadow-[0_10px_40px_rgba(28,43,51,0.04)] sm:p-6">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#82918d]">Защита входа:</span>
+        <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#82918d]">Защита входа родителя</span>
         {pinSet ? (
           <>
             <span className="rounded-full bg-[#e3f3e9] px-3 py-1.5 text-xs font-semibold text-[#4d8c6e]">PIN установлен ✓</span>

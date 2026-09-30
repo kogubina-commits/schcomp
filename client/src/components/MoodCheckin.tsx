@@ -57,7 +57,7 @@ export default function MoodCheckin() {
   const noteRef = useRef<string>("");
 
   const today = todayKey();
-  const dateLabel = (() => { const d = new Date(); const wd = ["вс","пн","вт","ср","чт","пт","сб"][d.getDay()]; const mo = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"][d.getMonth()]; return "Сегодня: " + wd + ", " + d.getDate() + " " + mo; })();
+  const dateLabel = (() => { const d = new Date(); const wd = ["понедельник","вторник","среда","четверг","пятница","суббота","воскресенье"][(d.getDay() + 6) % 7]; const mo = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"][d.getMonth()]; return "Сегодня: " + wd + ", " + d.getDate() + " " + mo; })();
   const entry = log[today] || {};
   const reasons = entry.reasons || [];
   const note = entry.note || "";
@@ -150,7 +150,7 @@ export default function MoodCheckin() {
         </span>
         <div>
           <h3 className="font-display text-xl font-semibold text-[#26363b]">Вечерний чек-ин с {mascot === "luna" ? "Луной" : "Тимо"}</h3>
-          <p className="mt-1 text-sm text-[#8a9792]">{dateLabel}. Три коротких шага — и день ложится в копилку недели.</p>
+          <p className="mt-1 text-sm text-[#8a9792]">Три коротких шага — и день ложится в копилку недели.</p>
         </div>
       </div>
 
